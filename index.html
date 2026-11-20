@@ -1,0 +1,35 @@
+<!doctype html>
+<!-- Эмулятор Mega Drive / Genesis (MDJS). Автор: Alexander Orel. Офлайн-версия: откройте этот файл двойным кликом. -->
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes">
+<title>Эмулятор Mega Drive / Genesis</title>
+<link rel="stylesheet" href="css/style.css">
+</head><body>
+<h1>Эмулятор Mega Drive / Genesis</h1>
+<div id="drop"><p>Выберите ROM файл<br><small>(или перетащите его сюда). Файл остаётся на вашем устройстве и никуда не отправляется.</small></p>
+<label class="b">Выберите ROM файл<input id="file" type="file" hidden></label></div>
+<div id="stage"><canvas id="screen" width="320" height="224"></canvas><div id="fx" aria-hidden="true"><i class="sl"></i><i class="nz"></i><i class="tr"></i></div>
+<div id="touch" hidden><div class="dp"><b data-d="up">▲</b><b data-d="left">◀</b><b data-d="right">▶</b><b data-d="down">▼</b></div>
+<div class="bt"><b data-k="start" class="st">START</b><b data-k="a">A</b><b data-k="b">B</b><b data-k="c">C</b></div></div><div id="fsbar" hidden><button id="fspause">⏸</button><button id="fsx">✕</button></div></div>
+<div id="ctl" hidden><button id="mute">Звук: вкл (M)</button><button id="pause">Пауза (P)</button><button id="save">Сохранить (F5)</button><button id="load">Загрузить (F8)</button><button id="fs">⛶ Во весь экран</button><button id="tt">Сенсорные кнопки</button><select id="region" title="Регион/частота кадров" style="padding:8px;border-radius:8px"><option value="auto">Регион: авто</option><option value="pal">PAL (50 Гц)</option><option value="ntsc">NTSC (60 Гц)</option></select><select id="cpu" title="Режим процессора 68000" style="padding:8px;border-radius:8px"><option value="0">Процессор: обычный</option><option value="1">Процессор: быстрый (экспер.)</option></select><details id="flt"><summary>Фильтры</summary><div><label><input type="checkbox" data-f="sl"> Строки развёртки (scanlines)</label><label><input type="checkbox" data-f="bl"> Сглаживание (bilinear)</label><label><input type="checkbox" data-f="vhs"> VHS эффект</label></div></details><span id="hz" style="align-self:center;color:var(--mut);font-size:13px"></span><button id="reset">Перезапуск</button></div>
+<div id="toast" style="opacity:0;transition:opacity .3s;color:var(--ac);height:20px"></div><div id="msg"></div>
+<div class="help">Управление: стрелки — движение, Z — A, X — B, C — C, Enter — Start, P — пауза, F5/F8 — быстрое сохранение/загрузка. Геймпад поддерживается.</div>
+<script src="js/util.js"></script>
+<script src="js/cpu-m68k.js"></script>
+<script src="js/cpu-z80.js"></script>
+<script src="js/vdp.js"></script>
+<script src="js/ym2612.js"></script>
+<script src="js/psg.js"></script>
+<script src="js/sound.js"></script>
+<script src="js/genesis.js"></script>
+<script src="js/state.js"></script>
+<script src="js/present.js"></script>
+<script src="js/audio-fallback.js"></script>
+<script src="js/audio-worklet.js"></script>
+<script src="js/input-keys.js"></script>
+<script src="js/input-touch.js"></script>
+<script src="js/fullscreen.js"></script>
+<script src="js/emu-worker.js"></script>
+<script src="js/worker-host.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/app.js"></script>
+</body></html>
